@@ -18,3 +18,13 @@ class BasePage:
         except (NoSuchElementException):
             return False
         return True
+
+    def curr_url(self, curr_substring):
+        # get_url = self.browser.current_url
+        # sub_str_url = get_url.split('/')[-1]
+        # if sub_str_url == curr_substring.split('/')[-1]:
+        sub_str = curr_substring.find("login")
+        if sub_str != -1:
+            return True
+        return False
+
