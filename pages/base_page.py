@@ -1,5 +1,6 @@
 import time
 
+import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
@@ -31,6 +32,11 @@ class BasePage:
         if sub_str != -1:
             return True
         return False
+
+    def xfail_link(self, link):
+        if link == '7':
+            return pytest.xfail(f"Skipping test {link}")
+        return link
 
     def calc_formula(self):
         alert = self.browser.switch_to.alert
